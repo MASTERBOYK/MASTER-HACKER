@@ -1,0 +1,28 @@
+body {
+  background-color: #0f0f0f;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.container {
+  width: 90%;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00ff00;
+}
+input {
+  padding: 10px;
+  width: 80%;
+  margin-bottom: 10px;
+}
+button {
+  padding: 10px 20px;
+  background-color: #00ff00;
+  border: none;
+  cursor: pointer;
+}
