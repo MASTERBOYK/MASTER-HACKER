@@ -1,17 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 𝗧𝗢𝗢𝗟</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>𝗠𝗔𝗦𝗧𝗘𝗥 𝗟𝗜𝗡𝗞 𝗚𝗘𝗡𝗘𝗥𝗔𝗧𝗢𝗥</title>
+  <style>
+    body {
+      background-color: black;
+      color: red;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px red;
+    }
+
+    .container {
+      background-color: #111;
+      border: 2px solid red;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 20px red;
+    }
+
+    input[type="text"] {
+      width: 90%;
+      padding: 12px;
+      border: 2px solid red;
+      border-radius: 5px;
+      background-color: black;
+      color: red;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: red;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: darkred;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      word-break: break-all;
+    }
+
+    a {
+      color: red;
+      text-decoration: underline;
+    }
+
+  </style>
 </head>
 <body>
+
+  <h1>𝗠𝗔𝗦𝗧𝗘𝗥 𝗟𝗜𝗡𝗞 𝗚𝗘𝗡𝗘𝗥𝗔𝗧𝗢𝗥</h1>
+
   <div class="container">
-    <h1>𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 𝗧𝗢𝗢𝗟</h1>
-    <p>Paste target link below:</p>
-    <input type="text" id="target" placeholder="Enter link here...">
-    <button onclick="generate()">Generate Link</button>
-    <p id="result"></p>
+    <input type="text" id="linkInput" placeholder="Enter your link here...">
+    <br>
+    <button onclick="generateLink()">Generate Link</button>
+
+    <div id="output"></div>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    function generateLink() {
+      const input = document.getElementById('linkInput').value.trim();
+      const outputDiv = document.getElementById('output');
+
+      if (!input) {
+        outputDiv.innerHTML = "<span style='color: grey;'>Please enter a link first.</span>";
+        return;
+      }
+
+      // Check if input starts with http/https, if not, add it
+      let link = input;
+      if (!link.startsWith("http://") && !link.startsWith("https://")) {
+        link = "https://" + link;
+      }
+
+      // Display generated link
+      outputDiv.innerHTML = "🔗 <strong>Generated Link:</strong><br><a href='" + link + "' target='_blank'>" + link + "</a>";
+    }
+  </script>
+
 </body>
 </html>
