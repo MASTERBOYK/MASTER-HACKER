@@ -1,86 +1,43 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 𝗦𝗜𝗠 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘 𝗧𝗢𝗢𝗟</title>
-  <style>
-    body {
-      background-color: #0b0b0b;
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
-      padding: 40px;
-    }
-    h1 {
-      color: #ff0000;
-    }
-    input[type="text"] {
-      padding: 10px;
-      width: 300px;
-      border: none;
-      border-radius: 5px;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #ff0000;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-    .result {
-      margin-top: 30px;
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .contact {
-      margin-top: 50px;
-      font-size: 16px;
-      color: #ccc;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Unban Tool</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 𝗧𝗢𝗢𝗟</h1>
-  <p>Enter Phone Number (with country code):</p>
-  <input type="text" id="phone" placeholder="e.g. +923001234567" />
-  <button onclick="getPhoneInfo()">Get Details</button>  <div class="result" id="result"></div>  <div class="contact">Contact: +923049876543</div>  <script>
-    async function getPhoneInfo() {
-      const phone = document.getElementById("phone").value.trim();
-      const resultDiv = document.getElementById("result");
-      resultDiv.innerHTML = "Fetching details...";
+    <div class="container">
+        <h1>WHATSAPP UNBAN TOOL</h1>
 
-      if (!phone.startsWith('+')) {
-        resultDiv.innerHTML = "Please enter phone number with country code (e.g. +92...)";
-        return;
-      }
+        <div class="form-section">
+            <label for="unban-option">SELECT UNBAN OPTION</label>
+            <select id="unban-option">
+                <option value="normal">Normal Ban</option>
+                <option value="permanent">Permanent Ban</option>
+            </select>
+        </div>
 
-      try {
-        const res = await fetch(`https://api.apilayer.com/number_verification/validate?number=${phone}`, {
-          method: "GET",
-          headers: {
-            "apikey": "YOUR_API_KEY_HERE"
-          }
-        });
-        const data = await res.json();
+        <div class="form-section">
+            <label for="phone-number">ENTER NUMBER</label>
+            <input type="text" id="phone-number" placeholder="eg: +923xxx">
+        </div>
 
-        if (data.valid) {
-          resultDiv.innerHTML = `
-            <strong>Number:</strong> ${data.international_format} <br>
-            <strong>Country:</strong> ${data.country_name} (${data.country_code})<br>
-            <strong>Location:</strong> ${data.location}<br>
-            <strong>Carrier:</strong> ${data.carrier}<br>
-            <strong>Line Type:</strong> ${data.line_type}<br>
-          `;
-        } else {
-          resultDiv.innerHTML = "Number is invalid or data not available.";
-        }
-      } catch (err) {
-        resultDiv.innerHTML = "Error fetching data.";
-        console.error(err);
-      }
-    }
-  </script></body>
+        <div class="form-section">
+            <label for="prompt-option">SELECT PROMPT</label>
+            <select id="prompt-option">
+                <option value="standard">PROMPT 1: Standard Unban Request</option>
+                <option value="apology">PROMPT 2: Apology and Unban Request</option>
+            </select>
+        </div>
+
+        <button id="send-request-btn">SEND UNBAN REQUEST</button>
+    </div>
+
+    <footer>
+        <p>DEVELOPED BY YOUR NAME 𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 | ©2025 | ALL SYSTEMS OPERATIONAL</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
