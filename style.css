@@ -1,7 +1,7 @@
 body {
-    background-color: #000; /* Black background */
-    color: #fff; /* White text for contrast */
-    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Roboto Mono', monospace; /* Unique font for a hacker-like feel */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,19 +11,33 @@ body {
 }
 
 .container {
-    background-color: #111; /* Slightly lighter black for the container */
+    background-color: rgba(17, 17, 17, 0.9); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Blurry effect */
     padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Red glowing effect */
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.7); /* Stronger red glow */
+    border: 1px solid #ff0000;
     width: 90%;
-    max-width: 400px;
+    max-width: 450px;
     text-align: center;
 }
 
-h1 {
-    color: #ff0000; /* Bright red heading */
+h1, h2 {
+    text-shadow: 0 0 15px #ff0000;
+}
+
+.logo-text {
+    font-size: 2.5rem;
+    color: #ff0000;
+    margin-bottom: 5px;
+    letter-spacing: 3px;
+}
+
+h2 {
+    color: #fff;
+    margin-top: 0;
     margin-bottom: 30px;
-    text-shadow: 0 0 10px #ff0000; /* Red glow for heading */
+    font-size: 1.5rem;
 }
 
 .form-section {
@@ -35,14 +49,14 @@ label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #ff0000; /* Red labels */
+    color: #ff0000;
 }
 
 select, input[type="text"] {
     width: 100%;
     padding: 12px;
     box-sizing: border-box;
-    border: 2px solid #ff0000; /* Red border */
+    border: 2px solid #ff0000;
     background-color: #222;
     color: #fff;
     font-size: 16px;
@@ -52,11 +66,12 @@ select, input[type="text"] {
 }
 
 select:focus, input[type="text"]:focus {
-    box-shadow: 0 0 10px #ff0000; /* Red glow on focus */
+    box-shadow: 0 0 10px #ff0000;
+    border-color: #ff3333;
 }
 
 button {
-    background-color: #ff0000; /* Red button background */
+    background-color: #ff0000;
     color: #fff;
     border: none;
     padding: 15px 30px;
@@ -66,12 +81,28 @@ button {
     cursor: pointer;
     width: 100%;
     margin-top: 20px;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Red glow for button */
-    transition: background-color 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-    background-color: #cc0000; /* Darker red on hover */
+    background-color: #cc0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+}
+
+.channel-link {
+    display: block;
+    margin-top: 20px;
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.channel-link:hover {
+    color: #ff3333;
+    text-decoration: underline;
 }
 
 footer {
