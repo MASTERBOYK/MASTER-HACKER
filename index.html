@@ -1,101 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 𝗧𝗢𝗢𝗟</title>
-  <style>
-    body {
-      background-color: black;
-      color: red;
-      font-family: 'Courier New', monospace;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 32px;
-      text-shadow: 0 0 10px red;
-      margin-bottom: 20px;
-    }
-    input {
-      width: 80%;
-      padding: 10px;
-      background: #111;
-      border: 2px solid red;
-      border-radius: 5px;
-      color: white;
-      margin-bottom: 10px;
-      font-size: 16px;
-    }
-    button {
-      padding: 10px 20px;
-      background: red;
-      color: black;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-bottom: 20px;
-    }
-    .result-box {
-      background: #111;
-      border: 2px solid red;
-      padding: 20px;
-      border-radius: 5px;
-      margin: auto;
-      width: 90%;
-      max-width: 400px;
-      text-align: left;
-      color: white;
-    }
-    .footer {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #888;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 𝗧𝗢𝗢𝗟</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: red;
+            font-size: 2.5rem;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 1rem;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        input {
+            width: 80%;
+        }
+        button {
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+        .result-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: #111;
+            border: 1px solid red;
+            border-radius: 10px;
+        }
+        .contact-box {
+            margin-top: 40px;
+            font-size: 1rem;
+            color: #aaa;
+        }
+    </style>
 </head>
-<body>
-  <h1>𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 𝗧𝗢𝗢𝗟</h1>
-  <input type="text" id="searchInput" placeholder="Enter SIM / CNIC / Name...">
-  <br>
-  <button onclick="getDetails()">Get Details</button>
+<body><h1>𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 𝗦𝗜𝗠 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘 𝗧𝗢𝗢𝗟</h1>
+<p>Enter any number to get details</p>
 
-  <div id="result" class="result-box">
-    Results will appear here...
-  </div>
+<input type="text" id="phoneInput" placeholder="Enter Phone Number">
+<button onclick="generateDetails()">Generate</button>
 
-  <div class="footer">
-    Contact me: <strong>+92XXXXXXXXXX</strong>
-  </div>
+<div id="result" class="result-box" style="display:none">
+    <p><strong>Name:</strong> Ali Khan</p>
+    <p><strong>CNIC:</strong> 35201-1234567-8</p>
+    <p><strong>Address:</strong> Lahore, Punjab, Pakistan</p>
+    <p><strong>SIM Registered:</strong> Jazz</p>
+</div>
 
-  <script>
-    // Dummy database (edit values as needed)
-    const database = {
-      '923001112222': {name: 'Ali Khan', CNIC: '12345-1234567-1', address: 'Lahore'},
-      '923004445555': {name: 'Sara Ahmed', CNIC: '23456-2345678-2', address: 'Karachi'},
-      '12345-6789012-3': {name: 'Usman Raza', CNIC: '12345-6789012-3', address: 'Islamabad'}
-    };
+<div class="contact-box">
+    <p>For more info contact: <strong>0300-1234567</strong></p>
+</div>
 
-    function getDetails() {
-      const input = document.getElementById('searchInput').value.trim();
-      const resultDiv = document.getElementById('result');
-
-      if (!input) {
-        resultDiv.innerHTML = '<span style="color: grey;">Please enter a value first.</span>';
-        return;
-      }
-
-      const data = database[input];
-      if (data) {
-        resultDiv.innerHTML = `
-          <p><strong>Name:</strong> ${data.name}</p>
-          <p><strong>CNIC:</strong> ${data.CNIC}</p>
-          <p><strong>Address:</strong> ${data.address}</p>
-        `;
-      } else {
-        resultDiv.innerHTML = '<span style="color: grey;">No data found for this input.</span>';
-      }
+<script>
+    function generateDetails() {
+        const input = document.getElementById("phoneInput").value;
+        if(input.trim() !== "") {
+            document.getElementById("result").style.display = "block";
+        } else {
+            alert("Please enter a number.");
+        }
     }
-  </script>
+</script>
+
 </body>
 </html>
