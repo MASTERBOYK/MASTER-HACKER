@@ -110,3 +110,6 @@ footer {
     color: #666;
     font-size: 12px;
 }
+body {
+    background-image: url{bg.png};
+}
