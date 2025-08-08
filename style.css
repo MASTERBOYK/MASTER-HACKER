@@ -1,28 +1,81 @@
 body {
-  background-color: #0f0f0f;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 50px;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text for contrast */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column;
 }
 
 .container {
-  width: 90%;
-  max-width: 500px;
-  margin: auto;
-  padding: 20px;
-  background-color: #1e1e1e;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #00ff00;
+    background-color: #111; /* Slightly lighter black for the container */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Red glowing effect */
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
 }
-input {
-  padding: 10px;
-  width: 80%;
-  margin-bottom: 10px;
+
+h1 {
+    color: #ff0000; /* Bright red heading */
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #ff0000; /* Red glow for heading */
 }
+
+.form-section {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ff0000; /* Red labels */
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 2px solid #ff0000; /* Red border */
+    background-color: #222;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+select:focus, input[type="text"]:focus {
+    box-shadow: 0 0 10px #ff0000; /* Red glow on focus */
+}
+
 button {
-  padding: 10px 20px;
-  background-color: #00ff00;
-  border: none;
-  cursor: pointer;
+    background-color: #ff0000; /* Red button background */
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Red glow for button */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+footer {
+    margin-top: 20px;
+    color: #666;
+    font-size: 12px;
 }
