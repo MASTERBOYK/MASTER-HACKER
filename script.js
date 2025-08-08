@@ -10,19 +10,48 @@ document.getElementById('send-request-btn').addEventListener('click', function()
 
     let subject = "WhatsApp Account Unban Request";
     let body = "";
+    const namePlaceholder = "[Your Name]"; // User will fill this in the email
 
+    // Base body based on ban type
     if (unbanOption === 'normal') {
-        subject += " - Normal Ban";
-        body = "Hello WhatsApp Support Team,\n\nI am writing to request an unban for my account. My phone number is " + phoneNumber + ".\nI believe my account was mistakenly banned. I have reviewed the Terms of Service and will ensure compliance in the future.\n\nThank you for your time and consideration.\n\nSincerely,\n[Your Name]";
+        subject += " - Normal Ban Appeal";
+        body = `Hello WhatsApp Support Team,
+My WhatsApp account with the number ${phoneNumber} has been banned.
+I am requesting a review of this decision. I have read and agree to follow all Terms of Service.
+Thank you for your time and help.`;
     } else if (unbanOption === 'permanent') {
-        subject += " - Permanent Ban";
-        body = "Hello WhatsApp Support Team,\n\nI am writing to appeal the permanent ban on my account with the phone number " + phoneNumber + ".\nI apologize for any violation that may have occurred. I have learned from my mistake and promise to follow all rules and guidelines in the future.\n\nI kindly request you to reconsider the ban and restore my account.\n\nSincerely,\n[Your Name]";
+        subject += " - Permanent Ban Appeal";
+        body = `Hello WhatsApp Support Team,
+My account, ${phoneNumber}, has been permanently banned.
+I apologize for any violation that may have occurred. I have learned from my mistake and promise to abide by all rules in the future.
+I kindly request that you reconsider the ban and reactivate my account.`;
     }
 
-    if (promptOption === 'apology') {
-        // You can add different prompt variations here
-        // For simplicity, we are using the main body as a prompt.
+    // Add more details based on the selected prompt
+    if (promptOption === 'standard') {
+        // No extra info needed, base body is sufficient
+    } else if (promptOption === 'apology') {
+        subject += " - Urgent Apology";
+        body = `Dear WhatsApp Support,
+I am writing with deep regret regarding the ban on my account, ${phoneNumber}.
+I understand I may have unknowingly violated a rule, and I sincerely apologize for any inconvenience caused. I promise this will not happen again and I will be more careful in the future.
+Please consider lifting the ban. Thank you.`;
+    } else if (promptOption === 'false-ban') {
+        subject += " - False Ban Report";
+        body = `Dear WhatsApp Support,
+My account, ${phoneNumber}, has been banned, but I believe this is a mistake.
+I have not engaged in any activities that violate your Terms of Service. I am a regular user and my account was compromised or banned incorrectly.
+Please investigate my account and restore it.`;
+    } else if (promptOption === 'data-loss') {
+        subject += " - Data Loss Concern";
+        body = `Hello WhatsApp Support Team,
+My number ${phoneNumber} has been banned. I have a lot of important personal and business data on my account.
+I am requesting an urgent review of my account. I will be more cautious in the future.
+My primary concern is the potential loss of my chats and data. Please help.`;
     }
+
+    // Add a concluding line
+    body += `\n\nDeveloped by MASTER HACKER.\n`;
 
     const mailtoLink = `mailto:support@whatsapp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
