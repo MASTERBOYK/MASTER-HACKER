@@ -1,69 +1,101 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 𝗧𝗢𝗢𝗟</title>
   <style>
     body {
-      background-color: #000;
+      background-color: black;
       color: red;
-      font-family: 'Arial Black', Gadget, sans-serif;
-      text-align: center;
+      font-family: 'Courier New', monospace;
       padding: 20px;
+      text-align: center;
     }
     h1 {
       font-size: 32px;
+      text-shadow: 0 0 10px red;
       margin-bottom: 20px;
     }
-    input[type="text"] {
+    input {
       width: 80%;
       padding: 10px;
+      background: #111;
       border: 2px solid red;
       border-radius: 5px;
-      background-color: black;
       color: white;
+      margin-bottom: 10px;
+      font-size: 16px;
     }
     button {
-      margin-top: 15px;
       padding: 10px 20px;
-      font-size: 18px;
-      background-color: red;
+      background: red;
       color: black;
       border: none;
       border-radius: 5px;
-      cursor: pointer;
-    }
-    .output {
-      margin-top: 20px;
       font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .result-box {
+      background: #111;
+      border: 2px solid red;
+      padding: 20px;
+      border-radius: 5px;
+      margin: auto;
+      width: 90%;
+      max-width: 400px;
+      text-align: left;
+      color: white;
     }
     .footer {
       margin-top: 30px;
       font-size: 14px;
-      color: gray;
+      color: #888;
     }
   </style>
 </head>
 <body>
   <h1>𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 𝗧𝗢𝗢𝗟</h1>
-  <p><strong>MASTER | HACKER | HACKING | TOOL</strong></p>
-  <input type="text" id="inputLink" placeholder="Paste your link here...">
+  <input type="text" id="searchInput" placeholder="Enter SIM / CNIC / Name...">
   <br>
-  <button onclick="generateLink()">Generate Link</button>
-  <div class="output" id="outputLink"></div>  <div class="footer">
-    Contact me on WhatsApp: <strong>+92XXXXXXXXXX</strong>
-  </div>  <script>
-    function generateLink() {
-      var input = document.getElementById("inputLink").value;
-      if(input) {
-        var fakeBase = "https://bit.ly/";
-        var suffix = Math.random().toString(36).substring(7);
-        var fakeLink = fakeBase + suffix;
-        document.getElementById("outputLink").innerHTML = 
-          "<p>Generated Link: <a href='" + input + "' target='_blank'>" + fakeLink + "</a></p>";
+  <button onclick="getDetails()">Get Details</button>
+
+  <div id="result" class="result-box">
+    Results will appear here...
+  </div>
+
+  <div class="footer">
+    Contact me: <strong>+92XXXXXXXXXX</strong>
+  </div>
+
+  <script>
+    // Dummy database (edit values as needed)
+    const database = {
+      '923001112222': {name: 'Ali Khan', CNIC: '12345-1234567-1', address: 'Lahore'},
+      '923004445555': {name: 'Sara Ahmed', CNIC: '23456-2345678-2', address: 'Karachi'},
+      '12345-6789012-3': {name: 'Usman Raza', CNIC: '12345-6789012-3', address: 'Islamabad'}
+    };
+
+    function getDetails() {
+      const input = document.getElementById('searchInput').value.trim();
+      const resultDiv = document.getElementById('result');
+
+      if (!input) {
+        resultDiv.innerHTML = '<span style="color: grey;">Please enter a value first.</span>';
+        return;
+      }
+
+      const data = database[input];
+      if (data) {
+        resultDiv.innerHTML = `
+          <p><strong>Name:</strong> ${data.name}</p>
+          <p><strong>CNIC:</strong> ${data.CNIC}</p>
+          <p><strong>Address:</strong> ${data.address}</p>
+        `;
       } else {
-        document.getElementById("outputLink").innerText = "Please paste a valid link first.";
+        resultDiv.innerHTML = '<span style="color: grey;">No data found for this input.</span>';
       }
     }
-  </script></body>
+  </script>
+</body>
 </html>
