@@ -1,106 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>𝗠𝗔𝗦𝗧𝗘𝗥 𝗟𝗜𝗡𝗞 𝗚𝗘𝗡𝗘𝗥𝗔𝗧𝗢𝗥</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 𝗧𝗢𝗢𝗟</title>
   <style>
     body {
-      background-color: black;
+      background-color: #000;
       color: red;
-      font-family: 'Courier New', Courier, monospace;
+      font-family: 'Arial Black', Gadget, sans-serif;
       text-align: center;
-      padding: 30px;
+      padding: 20px;
     }
-
     h1 {
       font-size: 32px;
       margin-bottom: 20px;
-      text-shadow: 0 0 10px red;
     }
-
-    .container {
-      background-color: #111;
-      border: 2px solid red;
-      padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 500px;
-      margin: auto;
-      box-shadow: 0 0 20px red;
-    }
-
     input[type="text"] {
-      width: 90%;
-      padding: 12px;
+      width: 80%;
+      padding: 10px;
       border: 2px solid red;
       border-radius: 5px;
       background-color: black;
-      color: red;
-      font-size: 16px;
-      margin-bottom: 15px;
+      color: white;
     }
-
     button {
-      padding: 12px 25px;
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 18px;
       background-color: red;
       color: black;
-      font-weight: bold;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 16px;
-      transition: 0.3s;
     }
-
-    button:hover {
-      background-color: darkred;
-    }
-
-    #output {
+    .output {
       margin-top: 20px;
-      font-size: 18px;
-      word-break: break-all;
+      font-size: 16px;
     }
-
-    a {
-      color: red;
-      text-decoration: underline;
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: gray;
     }
-
   </style>
 </head>
 <body>
-
-  <h1>𝗠𝗔𝗦𝗧𝗘𝗥 𝗟𝗜𝗡𝗞 𝗚𝗘𝗡𝗘𝗥𝗔𝗧𝗢𝗥</h1>
-
-  <div class="container">
-    <input type="text" id="linkInput" placeholder="Enter your link here...">
-    <br>
-    <button onclick="generateLink()">Generate Link</button>
-
-    <div id="output"></div>
-  </div>
-
-  <script>
+  <h1>𝗠𝗔𝗦𝗧𝗘𝗥 𝗛𝗔𝗖𝗞𝗘𝗥 𝗧𝗢𝗢𝗟</h1>
+  <p><strong>MASTER | HACKER | HACKING | TOOL</strong></p>
+  <input type="text" id="inputLink" placeholder="Paste your link here...">
+  <br>
+  <button onclick="generateLink()">Generate Link</button>
+  <div class="output" id="outputLink"></div>  <div class="footer">
+    Contact me on WhatsApp: <strong>+92XXXXXXXXXX</strong>
+  </div>  <script>
     function generateLink() {
-      const input = document.getElementById('linkInput').value.trim();
-      const outputDiv = document.getElementById('output');
-
-      if (!input) {
-        outputDiv.innerHTML = "<span style='color: grey;'>Please enter a link first.</span>";
-        return;
+      var input = document.getElementById("inputLink").value;
+      if(input) {
+        var fakeBase = "https://bit.ly/";
+        var suffix = Math.random().toString(36).substring(7);
+        var fakeLink = fakeBase + suffix;
+        document.getElementById("outputLink").innerHTML = 
+          "<p>Generated Link: <a href='" + input + "' target='_blank'>" + fakeLink + "</a></p>";
+      } else {
+        document.getElementById("outputLink").innerText = "Please paste a valid link first.";
       }
-
-      // Check if input starts with http/https, if not, add it
-      let link = input;
-      if (!link.startsWith("http://") && !link.startsWith("https://")) {
-        link = "https://" + link;
-      }
-
-      // Display generated link
-      outputDiv.innerHTML = "🔗 <strong>Generated Link:</strong><br><a href='" + link + "' target='_blank'>" + link + "</a>";
     }
-  </script>
-
-</body>
+  </script></body>
 </html>
